@@ -1,0 +1,26 @@
+Net Sales = SUMX('Order Lines', 'Order Lines'[quantity] * 'Order Lines'[unit_price] - 'Order Lines'[discount])
+
+Gross Sales = SUMX('Order Lines', 'Order Lines'[quantity] * 'Order Lines'[unit_price])
+
+Discount Amount = SUM('Order Lines'[discount])
+
+Orders = DISTINCTCOUNT('Order Lines'[order_id])
+
+Customers = DISTINCTCOUNT('Order Lines'[customer_id])
+
+Units Sold = SUM('Order Lines'[quantity])
+
+Average Order Value = DIVIDE([Net Sales], [Orders], 0)
+
+Sales Previous Month =
+CALCULATE([Net Sales], DATEADD('Date'[Date], -1, MONTH))
+
+Sales MoM Change = [Net Sales] - [Sales Previous Month]
+
+Sales MoM % = DIVIDE([Sales MoM Change], [Sales Previous Month])
+
+Repeat Customers =
+COUNTROWS(FILTER(VALUES('Order Lines'[customer_id]),
+    CALCULATE(DISTINCTCOUNT('Order Lines'[order_id])) > 1))
+
+Repeat Customer Rate = DIVIDE([Repeat Customers], [Customers])

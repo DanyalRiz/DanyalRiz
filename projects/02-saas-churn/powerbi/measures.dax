@@ -1,0 +1,13 @@
+Ending MRR = SUMX(FILTER(Subscriptions, Subscriptions[start_date] <= MAX('Date'[Date]) && (ISBLANK(Subscriptions[end_date]) || Subscriptions[end_date] >= MAX('Date'[Date]))), Subscriptions[monthly_price])
+
+Active Subscriptions = CALCULATE(DISTINCTCOUNT(Subscriptions[subscription_id]), FILTER(Subscriptions, Subscriptions[start_date] <= MAX('Date'[Date]) && (ISBLANK(Subscriptions[end_date]) || Subscriptions[end_date] >= MAX('Date'[Date]))))
+
+Churned MRR = CALCULATE(SUM(Subscriptions[monthly_price]), USERELATIONSHIP('Date'[Date], Subscriptions[end_date]))
+
+Churned Subscriptions = CALCULATE(DISTINCTCOUNT(Subscriptions[subscription_id]), USERELATIONSHIP('Date'[Date], Subscriptions[end_date]))
+
+Opening Subscriptions =
+VAR PeriodStart = MIN('Date'[Date])
+RETURN CALCULATE(DISTINCTCOUNT(Subscriptions[subscription_id]), FILTER(ALL(Subscriptions), Subscriptions[start_date] < PeriodStart && (ISBLANK(Subscriptions[end_date]) || Subscriptions[end_date] >= PeriodStart)))
+
+Logo Churn Rate = DIVIDE([Churned Subscriptions], [Opening Subscriptions])

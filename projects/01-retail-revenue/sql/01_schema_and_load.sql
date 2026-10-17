@@ -1,4 +1,4 @@
--- PostgreSQL 15+ | Run from this project directory with psql.
+-- PostgreSQL 15+ | Run from the repository root with psql.
 CREATE SCHEMA IF NOT EXISTS retail;
 DROP TABLE IF EXISTS retail.order_lines;
 CREATE TABLE retail.order_lines (

@@ -1,0 +1,21 @@
+subscription_id,customer_id,start_date,end_date,plan,monthly_price,acquisition_channel,status
+S001,AC001,2024-10-03,,Growth,199,Organic,Active
+S002,AC002,2024-11-12,2025-03-31,Starter,49,Paid Search,Cancelled
+S003,AC003,2024-12-01,,Enterprise,799,Partner,Active
+S004,AC004,2025-01-15,2025-05-20,Growth,199,Paid Search,Cancelled
+S005,AC005,2025-01-20,,Starter,49,Organic,Active
+S006,AC006,2025-02-02,2025-04-30,Growth,199,Referral,Cancelled
+S007,AC007,2025-02-11,,Enterprise,799,Partner,Active
+S008,AC008,2025-03-05,,Growth,199,Organic,Active
+S009,AC009,2025-03-18,2025-06-30,Starter,49,Paid Search,Cancelled
+S010,AC010,2025-04-02,,Growth,199,Referral,Active
+S011,AC011,2025-04-19,,Starter,49,Organic,Active
+S012,AC012,2025-05-01,2025-07-31,Enterprise,799,Paid Search,Cancelled
+S013,AC013,2025-05-13,,Growth,199,Partner,Active
+S014,AC014,2025-06-08,,Starter,49,Referral,Active
+S015,AC015,2025-06-20,,Growth,199,Paid Search,Active
+S016,AC016,2025-07-04,2025-09-30,Starter,49,Organic,Cancelled
+S017,AC017,2025-07-22,,Enterprise,799,Partner,Active
+S018,AC018,2025-08-10,,Growth,199,Organic,Active
+S019,AC019,2025-08-15,,Starter,49,Paid Search,Active
+S020,AC020,2025-09-01,,Growth,199,Referral,Active

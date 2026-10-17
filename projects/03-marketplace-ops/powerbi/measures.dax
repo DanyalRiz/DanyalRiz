@@ -1,0 +1,19 @@
+Delivered Orders = DISTINCTCOUNT(Shipments[order_id])
+
+Late Orders = CALCULATE([Delivered Orders], Shipments[is_late] = TRUE())
+
+Late Rate = DIVIDE([Late Orders], [Delivered Orders])
+
+Median Delivery Days = MEDIAN(Shipments[delivery_days])
+
+P90 Delivery Days = PERCENTILEX.INC(Shipments, Shipments[delivery_days], 0.9)
+
+Order Value = SUM(Shipments[order_value])
+
+Refund Value = SUM(Shipments[refund_amount])
+
+Refund Rate = DIVIDE([Refund Value], [Order Value])
+
+On-Time Orders = [Delivered Orders] - [Late Orders]
+
+On-Time Rate = DIVIDE([On-Time Orders], [Delivered Orders])
